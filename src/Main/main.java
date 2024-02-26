@@ -4,6 +4,8 @@
  */
 package Main;
 
+import Interfaces.Interfaz;
+
 /**
  *
  * @author Natalia
@@ -15,6 +17,8 @@ public class main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Interfaz ventana= new Interfaz();
+        ventana.setVisible(true);
     }
     
 }

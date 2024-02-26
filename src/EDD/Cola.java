@@ -4,6 +4,7 @@
  */
 package EDD;
 
+import Clases.Character;
 /**
  *
  * @author Natalia
@@ -78,9 +79,8 @@ public class Cola {
     
     
     public void imprimir() {
-    
         for (Nodo aux=getFirst(); aux!=null; aux=aux.getNext()) {
-            System.out.println(aux.getElement());
+            System.out.println(aux.getElement().getId()+" "+aux.getElement().getName() +" "+aux.getElement().getObject());
         }
     
     }

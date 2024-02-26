@@ -4,6 +4,8 @@
  */
 package EDD;
 
+import Clases.Character;
+
 /**
  *
  * @author Natalia
@@ -19,7 +21,7 @@ public class Nodo {
         this.next = null;
     }
 
-    public int getElement() {
+    public Character getElement() {
         return element;
     }
 
