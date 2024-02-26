@@ -4,6 +4,7 @@
  */
 package Clases;
 
+import EDD.Nodo;
 import Interfaces.Global;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
@@ -35,16 +36,29 @@ public class IA extends Thread {
     @Override
     
     public void run(){
-        
     while(true){
-                try {
+            
+            try {
                     mutex1.acquire(); //Wait del semáforo de Cartoon Network para conseguir el personaje
-                    this.p1 = Global.getCN().getPrioridad1().desencolar().getElement();
+                    if(Global.getCN().getPrioridad1().getSize() > 0){
+                        this.p1 = Global.getCN().getPrioridad1().desencolar().getElement();
+                    }else if(Global.getCN().getPrioridad2().getSize() > 0){
+                        this.p1 = Global.getCN().getPrioridad2().desencolar().getElement();
+                    }else if(Global.getCN().getPrioridad3().getSize() > 0){
+                        this.p1 = Global.getCN().getPrioridad3().desencolar().getElement();
+                    }
                     System.out.println("Se escogio uno de CN");
                     mutex1.release(); //Se cierra la zona crítica de Cartoon Network
                     
                     mutex2.acquire(); //Wait del Semáforo de Nickelodeon para conseguir el personaje
-                    this.p2 = Global.getNick().getPrioridad1().desencolar().getElement();
+                    
+                    if(Global.getNick().getPrioridad1().getSize() > 0){
+                        this.p2 = Global.getNick().getPrioridad1().desencolar().getElement();
+                    }else if(Global.getNick().getPrioridad2().getSize() > 0){
+                        this.p2 = Global.getNick().getPrioridad2().desencolar().getElement();
+                    }else if(Global.getNick().getPrioridad3().getSize() > 0){
+                        this.p2 = Global.getNick().getPrioridad3().desencolar().getElement();
+                    }
                     System.out.println("Se escogio uno de Nick");
                     mutex2.release(); //Se cierra la zona crítica de Cartoon Network
                     
@@ -69,9 +83,48 @@ public class IA extends Thread {
                     Global.getCN().getRefuerzo().encolar(p1);
                     Global.getNick().getRefuerzo().encolar(p2); 
                 }
+                
+                //Se terminó el combate y se actualizaron las colas, entonces, revisamos las listas de refuerzos
+                
+                if(Global.getCN().getRefuerzo().getSize()>0){
+                    int chance= (int) (Math.random()*100);
+                    if(chance>= 0 && chance <= 40){
+                        System.out.println("Un personaje de CN salió de la cola de refuerzos");
+                        Nodo character = Global.getCN().getRefuerzo().desencolar();
+                        Global.getCN().getPrioridad1().encolar(character.getElement());
+                    }else{
+                        System.out.println("Un personaje de CN se mandó al final de la cola de refuerzos");
+                        Nodo character = Global.getCN().getRefuerzo().desencolar();
+                        Global.getCN().getRefuerzo().encolar(character.getElement());
+                    }
+                }
+                
+                if(Global.getNick().getRefuerzo().getSize()>0){
+                    int chance= (int) (Math.random()*100);
+                    if(chance>= 0 && chance <= 40){
+                        System.out.println("Un personaje de Nick salió de la cola de refuerzos");
+                        Nodo character = Global.getNick().getRefuerzo().desencolar();
+                        Global.getNick().getPrioridad1().encolar(character.getElement());
+                    }else{
+                        System.out.println("Un personaje de Nick se mandó al final de la cola de refuerzos");
+                        Nodo character = Global.getNick().getRefuerzo().desencolar();
+                        Global.getNick().getRefuerzo().encolar(character.getElement());
+                    }
+                }
+                
+                sleep(3000); //Duerme 3 segundos para que el resultado se pueda ver reflejado en la interfaz, propenso a cambio
             } catch (InterruptedException ex) {
                 Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            if(Global.getCN().getPrioridad1().getSize() == 0 && Global.getCN().getPrioridad2().getSize() == 0 && Global.getCN().getPrioridad3().getSize() == 0){
+                System.out.println("Cartoon Network se quedó sin personajes, Nickelodeon Gana");
+                break;
+            }else if(Global.getNick().getPrioridad1().getSize() == 0 && Global.getNick().getPrioridad2().getSize() == 0 && Global.getCN().getPrioridad3().getSize() == 0){
+                System.out.println("Nickelodeon se quedó sin personajes, Cartoon Network Gana");
+                break;
+            }
+            
         }
     }
         
