@@ -32,100 +32,80 @@ public class IA extends Thread {
         this.p1 = null;
         this.p2 = null;
     }
+
+    public Character getP1() {
+        return p1;
+    }
+
+    public void setP1(Character p1) {
+        this.p1 = p1;
+    }
+
+    public Character getP2() {
+        return p2;
+    }
+
+    public void setP2(Character p2) {
+        this.p2 = p2;
+    }
     
+     
+     
     @Override
     
-    public void run(){
-    while(true){
-            
-            try {
-                    mutex1.acquire(); //Wait del semáforo de Cartoon Network para conseguir el personaje
-                    if(Global.getCN().getPrioridad1().getSize() > 0){
-                        this.p1 = Global.getCN().getPrioridad1().desencolar().getElement();
-                    }else if(Global.getCN().getPrioridad2().getSize() > 0){
-                        this.p1 = Global.getCN().getPrioridad2().desencolar().getElement();
-                    }else if(Global.getCN().getPrioridad3().getSize() > 0){
-                        this.p1 = Global.getCN().getPrioridad3().desencolar().getElement();
-                    }
-                    System.out.println("Se escogio uno de CN");
-                    mutex1.release(); //Se cierra la zona crítica de Cartoon Network
-                    
-                    mutex2.acquire(); //Wait del Semáforo de Nickelodeon para conseguir el personaje
-                    
-                    if(Global.getNick().getPrioridad1().getSize() > 0){
-                        this.p2 = Global.getNick().getPrioridad1().desencolar().getElement();
-                    }else if(Global.getNick().getPrioridad2().getSize() > 0){
-                        this.p2 = Global.getNick().getPrioridad2().desencolar().getElement();
-                    }else if(Global.getNick().getPrioridad3().getSize() > 0){
-                        this.p2 = Global.getNick().getPrioridad3().desencolar().getElement();
-                    }
-                    System.out.println("Se escogio uno de Nick");
-                    mutex2.release(); //Se cierra la zona crítica de Cartoon Network
-                    
-                int resultadonum= (int) (Math.random()*100) ; // se escoge el resultado de la batalla 
-                sleep(10000); //duerme 10 segundos en los que "piensa"
-                //ahora el resultado
+    public void run(){                    
+        try {
+//                mutex1.acquire(); //Wait del semáforo de Cartoon Network para conseguir el personaje
+//                if(Global.getCN().getPrioridad1().getSize() > 0){
+//                    this.p1 = Global.getCN().getPrioridad1().desencolar().getElement();
+//                }else if(Global.getCN().getPrioridad2().getSize() > 0){
+//                    this.p1 = Global.getCN().getPrioridad2().desencolar().getElement();
+//                }else if(Global.getCN().getPrioridad3().getSize() > 0){
+//                    this.p1 = Global.getCN().getPrioridad3().desencolar().getElement();
+//                }
+//                System.out.println("Se escogio uno de CN");
+//                mutex1.release(); //Se cierra la zona crítica de Cartoon Network
+//
+//                mutex2.acquire(); //Wait del Semáforo de Nickelodeon para conseguir el personaje
+//
+//                if(Global.getNick().getPrioridad1().getSize() > 0){
+//                    this.p2 = Global.getNick().getPrioridad1().desencolar().getElement();
+//                }else if(Global.getNick().getPrioridad2().getSize() > 0){
+//                    this.p2 = Global.getNick().getPrioridad2().desencolar().getElement();
+//                }else if(Global.getNick().getPrioridad3().getSize() > 0){
+//                    this.p2 = Global.getNick().getPrioridad3().desencolar().getElement();
+//                }
+//                System.out.println("Se escogio uno de Nick");
+//                mutex2.release(); //Se cierra la zona crítica de Nickelodeon
 
-                if(resultadonum<40) { //hay un ganador
+            int resultadonum= (int) (Math.random()*100) ; // se escoge el resultado de la batalla 
+            sleep(10000); //duerme 10 segundos en los que "piensa"
+            //ahora el resultado
 
-                    Character ganador=Ganador();
-                    Global.getGanadores().insertBegin(ganador);
+            if(resultadonum<40) { //hay un ganador
 
-                }
+                Character ganador=Ganador();
+                Global.getGanadores().insertBegin(ganador);
 
-                else if(resultadonum>=40 && resultadonum<67){ //hay empate
-                    System.out.println("Hubo empate");
-                    Global.getCN().getPrioridad1().encolar(p1);
-                    Global.getNick().getPrioridad1().encolar(p2);
-                }
-                else if (resultadonum>=67 && resultadonum<100){//no sucede el combate
-                    System.out.println("Alquien tuvo una luxación y el combate no se puede hacer");
-                    Global.getCN().getRefuerzo().encolar(p1);
-                    Global.getNick().getRefuerzo().encolar(p2); 
-                }
-                
-                //Se terminó el combate y se actualizaron las colas, entonces, revisamos las listas de refuerzos
-                
-                if(Global.getCN().getRefuerzo().getSize()>0){
-                    int chance= (int) (Math.random()*100);
-                    if(chance>= 0 && chance <= 40){
-                        System.out.println("Un personaje de CN salió de la cola de refuerzos");
-                        Nodo character = Global.getCN().getRefuerzo().desencolar();
-                        Global.getCN().getPrioridad1().encolar(character.getElement());
-                    }else{
-                        System.out.println("Un personaje de CN se mandó al final de la cola de refuerzos");
-                        Nodo character = Global.getCN().getRefuerzo().desencolar();
-                        Global.getCN().getRefuerzo().encolar(character.getElement());
-                    }
-                }
-                
-                if(Global.getNick().getRefuerzo().getSize()>0){
-                    int chance= (int) (Math.random()*100);
-                    if(chance>= 0 && chance <= 40){
-                        System.out.println("Un personaje de Nick salió de la cola de refuerzos");
-                        Nodo character = Global.getNick().getRefuerzo().desencolar();
-                        Global.getNick().getPrioridad1().encolar(character.getElement());
-                    }else{
-                        System.out.println("Un personaje de Nick se mandó al final de la cola de refuerzos");
-                        Nodo character = Global.getNick().getRefuerzo().desencolar();
-                        Global.getNick().getRefuerzo().encolar(character.getElement());
-                    }
-                }
-                
-                sleep(3000); //Duerme 3 segundos para que el resultado se pueda ver reflejado en la interfaz, propenso a cambio
-            } catch (InterruptedException ex) {
-                Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            else if(resultadonum>=40 && resultadonum<67){ //hay empate
+                System.out.println("Hubo empate");
+                Global.getCN().getPrioridad1().encolar(p1);
+                Global.getNick().getPrioridad1().encolar(p2);
+            }
+            else if (resultadonum>=67 && resultadonum<100){//no sucede el combate
+                System.out.println("Alquien tuvo una luxación y el combate no se puede hacer");
+                Global.getCN().getRefuerzo().encolar(p1);
+                Global.getNick().getRefuerzo().encolar(p2); 
             }
             
-            if(Global.getCN().getPrioridad1().getSize() == 0 && Global.getCN().getPrioridad2().getSize() == 0 && Global.getCN().getPrioridad3().getSize() == 0){
-                System.out.println("Cartoon Network se quedó sin personajes, Nickelodeon Gana");
-                break;
-            }else if(Global.getNick().getPrioridad1().getSize() == 0 && Global.getNick().getPrioridad2().getSize() == 0 && Global.getCN().getPrioridad3().getSize() == 0){
-                System.out.println("Nickelodeon se quedó sin personajes, Cartoon Network Gana");
-                break;
-            }
-            
+
+            sleep(3000); //Duerme 3 segundos para que el resultado se pueda ver reflejado en la interfaz, propenso a cambio
+        } catch (InterruptedException ex) {
+            Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
         
    

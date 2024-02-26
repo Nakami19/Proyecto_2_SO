@@ -4,6 +4,7 @@
  */
 package Interfaces;
 
+import Clases.Administrador;
 import Clases.Estudio;
 import Clases.IA;
 import javax.swing.JOptionPane;
@@ -17,6 +18,7 @@ public class Interfaz extends javax.swing.JFrame {
     Estudio nick = new Estudio("Nickelodeon");
     Estudio cn = new Estudio("Cartoon Network");
     IA ia = new IA();
+    Administrador admin = new Administrador(ia);
     boolean iniciado = false;
 
 
@@ -344,7 +346,8 @@ public class Interfaz extends javax.swing.JFrame {
             System.out.println("Prioridad 3 Nick");
             Global.getNick().getPrioridad3().imprimir();
             
-            ia.start();
+            admin.start();
+            //ia.start();
         }else{
             JOptionPane.showMessageDialog(null, "Ya la simulación empezó!");
         }      
