@@ -323,28 +323,30 @@ public class Interfaz extends javax.swing.JFrame {
             
             for (int i = 0; i < 20; i++) {
             int random=(int)(Math.random()*9);
-            Global.getCN().CreateCharacter(Global.getCartoon()[i], Global.getObjetos()[random]);
+            Global.getCN().CreateCharacter(Global.getCartoon()[i], Global.getObjetos()[random],admin.getIdCh());
+            admin.setIdCh(admin.getIdCh()+1);
             random=(int)(Math.random()*9);
-            Global.getNick().CreateCharacter(Global.getNickelodeon()[i], Global.getObjetos()[random]);
+            Global.getNick().CreateCharacter(Global.getNickelodeon()[i], Global.getObjetos()[random],admin.getIdCh());
+            admin.setIdCh(admin.getIdCh()+1);
             }
         
-            System.out.println("Prioridad 1 Cartoon");
-            Global.getCN().getPrioridad1().imprimir();
-
-            System.out.println("Prioridad 2 Cartoon");
-            Global.getCN().getPrioridad2().imprimir();
-
-            System.out.println("Prioridad 3 Cartoon");
-            Global.getCN().getPrioridad3().imprimir();
-
-            System.out.println("Prioridad 1 Nick");
-            Global.getNick().getPrioridad1().imprimir();
-
-            System.out.println("Prioridad 2 Nick");
-            Global.getNick().getPrioridad2().imprimir();
-
-            System.out.println("Prioridad 3 Nick");
-            Global.getNick().getPrioridad3().imprimir();
+//            System.out.println("Prioridad 1 Cartoon");
+//            Global.getCN().getPrioridad1().imprimir();
+//
+//            System.out.println("Prioridad 2 Cartoon");
+//            Global.getCN().getPrioridad2().imprimir();
+//
+//            System.out.println("Prioridad 3 Cartoon");
+//            Global.getCN().getPrioridad3().imprimir();
+//
+//            System.out.println("Prioridad 1 Nick");
+//            Global.getNick().getPrioridad1().imprimir();
+//
+//            System.out.println("Prioridad 2 Nick");
+//            Global.getNick().getPrioridad2().imprimir();
+//
+//            System.out.println("Prioridad 3 Nick");
+//            Global.getNick().getPrioridad3().imprimir();
             
             admin.start();
             //ia.start();

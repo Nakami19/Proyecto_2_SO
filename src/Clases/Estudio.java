@@ -12,7 +12,7 @@ import EDD.Cola;
  */
 public class Estudio {
     private String name;
-    private int IdCh=0;
+//    private int IdCh=0;
     private Cola prioridad1;
     private Cola prioridad2;
     private Cola prioridad3;
@@ -27,8 +27,8 @@ public class Estudio {
         this.refuerzo=new Cola();
     }
     
-    public void CreateCharacter(String name, String Object){
-        Character personaje=new Character(name,Object,getIdCh());
+    public void CreateCharacter(String name, String Object, int id){
+        Character personaje=new Character(name,Object,id);
         personaje.CalcularStats();
         if (personaje.getNivel()==1){
             prioridad1.encolar(personaje);
@@ -39,8 +39,8 @@ public class Estudio {
         else if (personaje.getNivel()==3) {
             prioridad3.encolar(personaje);
         }
-        
-        setIdCh(getIdCh()+1);
+       // System.out.println("personaje creado, id: "+personaje.getId()+" nombre "+personaje.getName());
+        //setIdCh(getIdCh()+1);
     }
 
     public String getName() {
@@ -51,13 +51,13 @@ public class Estudio {
         this.name = name;
     }
 
-    public int getIdCh() {
-        return IdCh;
-    }
-
-    public void setIdCh(int IdCh) {
-        this.IdCh = IdCh;
-    }
+//    public int getIdCh() {
+//        return IdCh;
+//    }
+//
+//    public void setIdCh(int IdCh) {
+//        this.IdCh = IdCh;
+//    }
 
     public Cola getPrioridad1() {
         return prioridad1;

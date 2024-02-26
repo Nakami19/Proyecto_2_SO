@@ -81,9 +81,9 @@ public class IA extends Thread {
             int resultadonum= (int) (Math.random()*100) ; // se escoge el resultado de la batalla 
             sleep(10000); //duerme 10 segundos en los que "piensa"
             //ahora el resultado
-
+            System.out.println("decision: "+resultadonum);
             if(resultadonum<40) { //hay un ganador
-
+                System.out.println("Hay un ganador, combatientes: "+p1.getName()+" "+p2.getName());
                 Character ganador=Ganador();
                 Global.getGanadores().insertBegin(ganador);
 

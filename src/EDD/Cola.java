@@ -70,13 +70,60 @@ public class Cola {
         if (!empty()) {
             Nodo pointer= getFirst();
             setFirst(pointer.getNext());
-            pointer.setNext(null);
+           // pointer.setNext(null);
             size --;
             return pointer;
         }
        return null; 
     }
     
+    public void subir_contador() {
+        //se recorre la cola
+        for (Nodo aux=getFirst(); aux!=null; aux=aux.getNext()) {
+            if(aux.getElement().getCounter()<8){//si el contador es menor a 8 sube
+                aux.getElement().setCounter(aux.getElement().getCounter()+1);//se suma 1 al contador 
+               // System.out.println("contado nuevo: "+aux.getElement().getCounter()+" nombre "+aux.getElement().getName()+" id "+aux.getElement().getId() );
+            }
+            else{
+            
+            }
+            
+        }
+    
+    }
+    
+     public int Buscar(Nodo element) {
+        int index=0;
+        
+        for (Nodo aux=getFirst(); aux!=null; aux=aux.getNext()) {
+            if(aux==element) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+    
+    public Nodo borrar(int index) {
+        Nodo aux=getFirst();
+        Nodo retornar=null;
+        int count=0;
+        if (index!=0) {
+        while(aux.getNext()!=null && count!=(index-1)) {
+            aux=aux.getNext();
+            count++;
+        }
+        
+        if(aux.getNext()!=null) {
+            retornar=aux.getNext();
+            aux.setNext(aux.getNext().getNext());
+        
+        }
+        
+        } 
+        
+        return retornar;
+    }
     
     public void imprimir() {
         for (Nodo aux=getFirst(); aux!=null; aux=aux.getNext()) {
