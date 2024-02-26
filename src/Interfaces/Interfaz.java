@@ -5,6 +5,8 @@
 package Interfaces;
 
 import Clases.Estudio;
+import Clases.IA;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +16,8 @@ public class Interfaz extends javax.swing.JFrame {
     //Global g;
     Estudio nick = new Estudio("Nickelodeon");
     Estudio cn = new Estudio("Cartoon Network");
+    IA ia = new IA();
+    boolean iniciado = false;
 
 
     /**
@@ -311,33 +315,40 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
         // TODO add your handling code here:
-        //se crean los personajes 
-        for (int i = 0; i < 20; i++) {
+        //se crean los personajes
+        if(iniciado == false){
+            iniciado = true;
+            
+            for (int i = 0; i < 20; i++) {
             int random=(int)(Math.random()*9);
             Global.getCN().CreateCharacter(Global.getCartoon()[i], Global.getObjetos()[random]);
             random=(int)(Math.random()*9);
             Global.getNick().CreateCharacter(Global.getNickelodeon()[i], Global.getObjetos()[random]);
-        }
+            }
         
-        System.out.println("Prioridad 1 Cartoon");
-        Global.getCN().getPrioridad1().imprimir();
-        
-        System.out.println("Prioridad 2 Cartoon");
-        Global.getCN().getPrioridad2().imprimir();
-        
-        System.out.println("Prioridad 3 Cartoon");
-        Global.getCN().getPrioridad3().imprimir();
-        
-        System.out.println("Prioridad 1 Nick");
-        Global.getNick().getPrioridad1().imprimir();
-        
-        System.out.println("Prioridad 2 Nick");
-        Global.getNick().getPrioridad2().imprimir();
-        
-        System.out.println("Prioridad 3 Nick");
-        Global.getNick().getPrioridad3().imprimir();
-        
-        
+            System.out.println("Prioridad 1 Cartoon");
+            Global.getCN().getPrioridad1().imprimir();
+
+            System.out.println("Prioridad 2 Cartoon");
+            Global.getCN().getPrioridad2().imprimir();
+
+            System.out.println("Prioridad 3 Cartoon");
+            Global.getCN().getPrioridad3().imprimir();
+
+            System.out.println("Prioridad 1 Nick");
+            Global.getNick().getPrioridad1().imprimir();
+
+            System.out.println("Prioridad 2 Nick");
+            Global.getNick().getPrioridad2().imprimir();
+
+            System.out.println("Prioridad 3 Nick");
+            Global.getNick().getPrioridad3().imprimir();
+            
+            ia.start();
+        }else{
+            JOptionPane.showMessageDialog(null, "Ya la simulación empezó!");
+        }      
+               
         
     }//GEN-LAST:event_InicioActionPerformed
 
