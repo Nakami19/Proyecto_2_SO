@@ -6,6 +6,7 @@ package Clases;
 
 import EDD.Nodo;
 import Interfaces.Global;
+import Interfaces.Interfaz;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -79,7 +80,7 @@ public class IA extends Thread {
 //                mutex2.release(); //Se cierra la zona crítica de Nickelodeon
 
             int resultadonum= (int) (Math.random()*100) ; // se escoge el resultado de la batalla 
-            sleep(10000); //duerme 10 segundos en los que "piensa"
+            sleep(3000); //duerme 10 segundos en los que "piensa"
             //ahora el resultado
             System.out.println("decision: "+resultadonum);
             if(resultadonum<40) { //hay un ganador
@@ -136,13 +137,16 @@ public class IA extends Thread {
             ventaja_p2++;
         }
         
+        
         if(ventaja_p1>ventaja_p2){
             System.out.println(p1.getName()+" es el ganador");
+            Interfaz.getListaGanadores().append("C-"+p1.getId()+'\n');
             
             
             return p1;
         }else{
             System.out.println(p2.getName()+" es el ganador");
+            Interfaz.getListaGanadores().append("N-"+p2.getId()+'\n');
            
             return p2;
         }
