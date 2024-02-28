@@ -14,7 +14,7 @@ import EDD.Lista;
  */
 public class Global {
     private static String[] nickelodeon={"Aang", "Zuko", "Katara", "Sokka", "Toph", "Azula", "Aang estado avatar", "Bumi", "Iroh", "Ozai", "Appa", "Momo", "Roku", "Kyoshi", "Suki", "Mai", "Ty Lee", "Gyatso", "Sozin", "Pakku"} ;
-    private static String[] cartoon={"Mordecai", "Rigby", "Benson", "Papaleta", "Skips", "Fantasmin", "Musculoso", "Margarita", "Eileen", "CJ", "Thomas", "Don", "El Martillo", "Muerte", "Mega Patitos", "Dios del basquetbol", "Garret Bobby Ferguson", "Caballero Extrahuevordinario", "Techmo", "Starla"};
+    private static String[] cartoon={"Mordecai", "Rigby", "Benson", "Papaleta", "Skips", "Fantasmano", "Musculoso", "Margarita", "Eileen", "CJ", "Thomas", "Don", "El Martillo", "Muerte", "Mega Patitos", "Dios del basquetbol", "Garret Bobby Ferguson", "Caballero Extrahuevordinario", "Techmo", "Starla"};
     
     private static String[] objetos={"El poder","Guante Supremo","Boomerang","Planeador","Armadura","Abanicos","Gorra de Camionero","Cafe","Sandwich de la Muerte","Collar de Katara"};
   

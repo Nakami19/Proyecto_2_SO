@@ -82,13 +82,19 @@ public class IA extends Thread {
             int resultadonum= (int) (Math.random()*100) ; // se escoge el resultado de la batalla 
             sleep(3000); //duerme 10 segundos en los que "piensa"
             //ahora el resultado
+            Character ganador;
             System.out.println("decision: "+resultadonum);
             if(resultadonum<40) { //hay un ganador
                 System.out.println("Hay un ganador, combatientes: "+p1.getName()+" "+p2.getName());
             System.out.println("personaje 1, id: "+p1.getId()+" nombre "+p1.getName()+" stats:\nAgilidad: "+p1.getAgilidad()+"\nFuerza: "+p1.getFuerza()+"\nHabilidad: "+p1.getHabilidad()+"\nHP: "+p1.getHp());
             System.out.println("personaje 2, id: "+p2.getId()+" nombre "+p2.getName()+" stats:\nAgilidad: "+p2.getAgilidad()+"\nFuerza: "+p2.getFuerza()+"\nHabilidad: "+p2.getHabilidad()+"\nHP: "+p2.getHp());
-
-                Character ganador=Ganador();
+                
+            if(p2.getName().compareTo("Aang estado avatar")==0) {
+                ganador=p2;
+            } else {
+                ganador=Ganador();
+            }
+                
                 Global.getGanadores().insertBegin(ganador);
 
             }
