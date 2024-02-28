@@ -36,6 +36,7 @@ public class Administrador extends Thread{
     public void run(){
         while(true){
             try{
+                checkEmpty();
                 mutex1.acquire(); //Wait del semáforo de Cartoon Network para conseguir el personaje
                 if(Global.getCN().getPrioridad1().getSize() > 0){
                     this.ia.setP1(Global.getCN().getPrioridad1().desencolar().getElement());
@@ -311,6 +312,22 @@ public class Administrador extends Thread{
     public void clearIcons(){
         Interfaz.getCharacter_Icon_Nick().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
         Interfaz.getCharacter_Icon_Cn().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
+    }
+    
+    public void checkEmpty(){
+        if(Global.getCN().getPrioridad1().getSize() == 0 && Global.getCN().getPrioridad2().getSize() == 0 && Global.getCN().getPrioridad3().getSize() == 0){
+            int numP=(int) (Math.random()*19);
+            int numO=(int) (Math.random()*9);
+            Global.getCN().CreateCharacter(Global.getCartoon()[numP], Global.getObjetos()[numO],IdCh);
+            IdCh++;            
+        }
+        
+        if(Global.getNick().getPrioridad1().getSize() == 0 && Global.getNick().getPrioridad2().getSize() == 0 && Global.getNick().getPrioridad3().getSize() == 0){
+            int numP=(int) (Math.random()*19);
+            int numO=(int) (Math.random()*9);
+            Global.getNick().CreateCharacter(Global.getNickelodeon()[numP], Global.getObjetos()[numO],IdCh);
+            IdCh++;
+        }
     }
     
 }
