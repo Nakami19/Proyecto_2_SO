@@ -84,9 +84,7 @@ public class Cola {
                 aux.getElement().setCounter(aux.getElement().getCounter()+1);//se suma 1 al contador 
                // System.out.println("contado nuevo: "+aux.getElement().getCounter()+" nombre "+aux.getElement().getName()+" id "+aux.getElement().getId() );
             }
-            else{
             
-            }
             
         }
     
@@ -125,11 +123,13 @@ public class Cola {
         return retornar;
     }
     
-    public void imprimir() {
+    public String imprimir() {
+        String contenido="id y nombre:\n";
         for (Nodo aux=getFirst(); aux!=null; aux=aux.getNext()) {
-            System.out.println(aux.getElement().getId()+" "+aux.getElement().getName() +" "+aux.getElement().getObject());
+            contenido+=aux.getElement().getId()+"\n";
+            //System.out.println(aux.getElement().getId()+" "+aux.getElement().getName() +" "+aux.getElement().getObject());
         }
-    
+        return contenido;
     }
     
     
