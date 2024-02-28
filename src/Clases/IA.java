@@ -10,6 +10,7 @@ import Interfaces.Interfaz;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,6 +22,10 @@ public class IA extends Thread {
     private Semaphore mutex2; //Semaforo de Nickelodeon
     private Character p1; //Personaje de Cn
     private Character p2; //Personaje de NK
+    private int CnWins;
+    private int NickWins;
+    private String state;
+    private int WaitingTime;
     
 //    public IA (Semaphore mutex1, Semaphore mutex2) {
 //        this.mutex1=mutex1;
@@ -32,6 +37,10 @@ public class IA extends Thread {
         this.mutex2 = new Semaphore(1);
         this.p1 = null;
         this.p2 = null;
+        this.CnWins = 0;
+        this.NickWins = 0;
+        this.state = "Esperando...";
+        this.WaitingTime = 10000;
     }
 
     public Character getP1() {
@@ -48,46 +57,38 @@ public class IA extends Thread {
 
     public void setP2(Character p2) {
         this.p2 = p2;
+    }    
+
+    public int getWaitingTime() {
+        return WaitingTime;
+    }
+
+    public void setWaitingTime(int WaitingTime) {
+        this.WaitingTime = WaitingTime;
     }
     
-     
+    
      
     @Override
     
     public void run(){                    
         try {
-//                mutex1.acquire(); //Wait del semáforo de Cartoon Network para conseguir el personaje
-//                if(Global.getCN().getPrioridad1().getSize() > 0){
-//                    this.p1 = Global.getCN().getPrioridad1().desencolar().getElement();
-//                }else if(Global.getCN().getPrioridad2().getSize() > 0){
-//                    this.p1 = Global.getCN().getPrioridad2().desencolar().getElement();
-//                }else if(Global.getCN().getPrioridad3().getSize() > 0){
-//                    this.p1 = Global.getCN().getPrioridad3().desencolar().getElement();
-//                }
-//                System.out.println("Se escogio uno de CN");
-//                mutex1.release(); //Se cierra la zona crítica de Cartoon Network
-//
-//                mutex2.acquire(); //Wait del Semáforo de Nickelodeon para conseguir el personaje
-//
-//                if(Global.getNick().getPrioridad1().getSize() > 0){
-//                    this.p2 = Global.getNick().getPrioridad1().desencolar().getElement();
-//                }else if(Global.getNick().getPrioridad2().getSize() > 0){
-//                    this.p2 = Global.getNick().getPrioridad2().desencolar().getElement();
-//                }else if(Global.getNick().getPrioridad3().getSize() > 0){
-//                    this.p2 = Global.getNick().getPrioridad3().desencolar().getElement();
-//                }
-//                System.out.println("Se escogio uno de Nick");
-//                mutex2.release(); //Se cierra la zona crítica de Nickelodeon
-
-            int resultadonum= (int) (Math.random()*100) ; // se escoge el resultado de la batalla 
-            sleep(3000); //duerme 10 segundos en los que "piensa"
+//          
+            int resultadonum= (int) (Math.random()*100) ; // se escoge el resultado de la batalla
+            this.state = "Decidiendo";
+            Interfaz.getIA_State().setText(this.state);
+            sleep(this.WaitingTime); //duerme 10 segundos en los que "piensa"
             //ahora el resultado
+            this.state = "Anunciando resultados";
+            Interfaz.getIA_State().setText(this.state);
+            
             Character ganador;
             System.out.println("decision: "+resultadonum);
             if(resultadonum<40) { //hay un ganador
                 System.out.println("Hay un ganador, combatientes: "+p1.getName()+" "+p2.getName());
-            System.out.println("personaje 1, id: "+p1.getId()+" nombre "+p1.getName()+" stats:\nAgilidad: "+p1.getAgilidad()+"\nFuerza: "+p1.getFuerza()+"\nHabilidad: "+p1.getHabilidad()+"\nHP: "+p1.getHp());
-            System.out.println("personaje 2, id: "+p2.getId()+" nombre "+p2.getName()+" stats:\nAgilidad: "+p2.getAgilidad()+"\nFuerza: "+p2.getFuerza()+"\nHabilidad: "+p2.getHabilidad()+"\nHP: "+p2.getHp());
+                System.out.println("personaje 1, id: "+p1.getId()+" nombre "+p1.getName()+" stats:\nAgilidad: "+p1.getAgilidad()+"\nFuerza: "+p1.getFuerza()+"\nHabilidad: "+p1.getHabilidad()+"\nHP: "+p1.getHp());
+                System.out.println("personaje 2, id: "+p2.getId()+" nombre "+p2.getName()+" stats:\nAgilidad: "+p2.getAgilidad()+"\nFuerza: "+p2.getFuerza()+"\nHabilidad: "+p2.getHabilidad()+"\nHP: "+p2.getHp());
+                Interfaz.getResultado_Combate().setText("Hubo un ganador!");
                 
             if(p2.getName().compareTo("Aang estado avatar")==0) {
                 ganador=p2;
@@ -101,17 +102,22 @@ public class IA extends Thread {
 
             else if(resultadonum>=40 && resultadonum<67){ //hay empate
                 System.out.println("Hubo empate");
+                Interfaz.getResultado_Combate().setText("Hubo un empate!");
                 Global.getCN().getPrioridad1().encolar(p1);
                 Global.getNick().getPrioridad1().encolar(p2);
             }
             else if (resultadonum>=67 && resultadonum<100){//no sucede el combate
                 System.out.println("Alquien tuvo una luxación y el combate no se puede hacer");
+                Interfaz.getResultado_Combate().setText("Suspendido!");
                 Global.getCN().getRefuerzo().encolar(p1);
                 Global.getNick().getRefuerzo().encolar(p2); 
-            }
-            
+            }            
 
             sleep(3000); //Duerme 3 segundos para que el resultado se pueda ver reflejado en la interfaz, propenso a cambio
+            
+            this.state = "Esperando...";
+            Interfaz.getIA_State().setText(this.state);
+            Interfaz.getResultado_Combate().setText("Esperando...");
         } catch (InterruptedException ex) {
             Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -150,13 +156,18 @@ public class IA extends Thread {
         if(ventaja_p1>ventaja_p2){
             System.out.println(p1.getName()+" es el ganador");
             Interfaz.getListaGanadores().append("C-"+p1.getId()+'\n');
-            
+            Interfaz.getCharacter_Icon_Nick().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png"))); // Se quita la foto del perdedor
+            this.CnWins ++;
+            Interfaz.getMarcadorCartoon().setText(Integer.toString(this.CnWins));
             
             return p1;
         }else{
             System.out.println(p2.getName()+" es el ganador");
             Interfaz.getListaGanadores().append("N-"+p2.getId()+'\n');
-           
+            Interfaz.getCharacter_Icon_Cn().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png"))); // Se quita la foto del Perdedor
+            this.NickWins ++;
+            Interfaz.getMarcadorNick().setText(Integer.toString(this.NickWins));
+            
             return p2;
         }
        
