@@ -6,9 +6,11 @@ package Clases;
 
 import EDD.Nodo;
 import Interfaces.Global;
+import Interfaces.Interfaz;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -17,7 +19,7 @@ import java.util.logging.Logger;
 public class Administrador extends Thread{
     
     private int ciclo; //cada 2 ciclos se revisa la probabilidad de que se cree uno nuevo
-    private IA ia; //la IA con el que el Admin va a estar trabajando
+    public IA ia; //la IA con el que el Admin va a estar trabajando
     private Semaphore mutex1; //Semaforo de Cn
     private Semaphore mutex2; //Semaforo de Nickelodeon
     private int IdCh=0;
@@ -44,6 +46,8 @@ public class Administrador extends Thread{
                 }
                 System.out.println("Se escogio uno de CN");
                 mutex1.release(); //Se cierra la zona crítica de Cartoon Network
+                
+                changeStatsCn(); //Se cambian las Stats al personaje actual de Cartoon Network
 
                 mutex2.acquire(); //Wait del Semáforo de Nickelodeon para conseguir el personaje
 
@@ -57,7 +61,13 @@ public class Administrador extends Thread{
                 System.out.println("Se escogio uno de Nick");
                 mutex2.release(); //Se cierra la zona crítica de Nickelodeon
                 
+                changeStatsNick(); //Se cambian las Stats al personaje actual de Nick
+            
+            changeIcons();    
+                
             this.ia.run();
+            
+            clearStats();
             this.ciclo++;
             //hora de ver como se actualizan las colas
             //primero hora de subir los contadores de la cola 2 y 3 
@@ -261,6 +271,46 @@ public class Administrador extends Thread{
 
     public void setIdCh(int IdCh) {
         this.IdCh = IdCh;
+    }
+    
+    public void changeIcons(){
+        Interfaz.getCharacter_Icon_Nick().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/"+this.ia.getP2().getName()+".png")));
+        Interfaz.getCharacter_Icon_Cn().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/"+this.ia.getP1().getName()+".png")));
+    }
+    
+    public void changeStatsCn(){
+        Interfaz.getObject_Cn().setText(this.ia.getP1().getObject());
+        Interfaz.getAbility_Cn().setText(Integer.toString(this.ia.getP1().getHabilidad()));
+        Interfaz.getStrength_Cn().setText(Integer.toString(this.ia.getP1().getFuerza()));
+        Interfaz.getHP_Cn().setText(Integer.toString(this.ia.getP1().getHp()));
+        Interfaz.getAgility_Cn().setText(Integer.toString(this.ia.getP1().getAgilidad()));
+    }
+    
+    public void changeStatsNick(){
+        Interfaz.getObject_Nick().setText(this.ia.getP2().getObject());
+        Interfaz.getAbility_Nick().setText(Integer.toString(this.ia.getP2().getHabilidad()));
+        Interfaz.getStrength_Nick().setText(Integer.toString(this.ia.getP2().getFuerza()));
+        Interfaz.getHP_Nick().setText(Integer.toString(this.ia.getP2().getHp()));
+        Interfaz.getAgility_Nick().setText(Integer.toString(this.ia.getP2().getAgilidad()));
+    }
+    
+    public void clearStats(){
+        Interfaz.getObject_Cn().setText("-");
+        Interfaz.getAbility_Cn().setText("-");
+        Interfaz.getStrength_Cn().setText("-");
+        Interfaz.getHP_Cn().setText("-");
+        Interfaz.getAgility_Cn().setText("-");
+        
+        Interfaz.getObject_Nick().setText("-");
+        Interfaz.getAbility_Nick().setText("-");
+        Interfaz.getStrength_Nick().setText("-");
+        Interfaz.getHP_Nick().setText("-");
+        Interfaz.getAgility_Nick().setText("-");
+    }
+    
+    public void clearIcons(){
+        Interfaz.getCharacter_Icon_Nick().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
+        Interfaz.getCharacter_Icon_Cn().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
     }
     
 }

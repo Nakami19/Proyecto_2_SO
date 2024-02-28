@@ -7,8 +7,10 @@ package Interfaces;
 import Clases.Administrador;
 import Clases.Estudio;
 import Clases.IA;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 
 /**
@@ -35,70 +37,88 @@ public class Interfaz extends javax.swing.JFrame {
          this.setLocationRelativeTo(null); 
     }
 
-    public JLabel getAbility_Cn() {
+    public static JLabel getCharacter_Icon_Cn() {
+        return Character_Icon_Cn;
+    }
+
+    public static void setCharacter_Icon_Cn(JLabel Character_Icon_Cn) {
+        Interfaz.Character_Icon_Cn = Character_Icon_Cn;
+    }
+
+    public static JLabel getCharacter_Icon_Nick() {
+        return Character_Icon_Nick;
+    }
+
+    public static void setCharacter_Icon_Nick(JLabel Character_Icon_Nick) {
+        Interfaz.Character_Icon_Nick = Character_Icon_Nick;
+    }
+
+    
+    
+    public static JLabel getAbility_Cn() {
         return Ability_Cn;
     }
 
-    public JLabel getMarcadorCartoon() {
+    public static JLabel getMarcadorCartoon() {
         return marcadorCartoon;
     }
 
-    public void setMarcadorCartoon(JLabel marcadorCartoon) {
-        this.marcadorCartoon = marcadorCartoon;
+    public static void setMarcadorCartoon(JLabel marcadorCartoon) {
+        Interfaz.marcadorCartoon = marcadorCartoon;
     }
 
-    public JLabel getMarcadorNick() {
+    public static JLabel getMarcadorNick() {
         return marcadorNick;
     }
 
-    public void setMarcadorNick(JLabel marcadorNick) {
-        this.marcadorNick = marcadorNick;
+    public static void setMarcadorNick(JLabel marcadorNick) {
+        Interfaz.marcadorNick = marcadorNick;
     }
     
     
 
-    public void setAbility_Cn(JLabel Ability_Cn) {
-        this.Ability_Cn = Ability_Cn;
+    public static void setAbility_Cn(JLabel Ability_Cn) {
+        Interfaz.Ability_Cn = Ability_Cn;
     }
 
-    public JLabel getAbility_Nick() {
+    public static JLabel getAbility_Nick() {
         return Ability_Nick;
     }
 
-    public void setAbility_Nick(JLabel Ability_Nick) {
-        this.Ability_Nick = Ability_Nick;
+    public static void setAbility_Nick(JLabel Ability_Nick) {
+        Interfaz.Ability_Nick = Ability_Nick;
     }
 
-    public JLabel getAgility_Cn() {
+    public static JLabel getAgility_Cn() {
         return Agility_Cn;
     }
 
-    public void setAgility_Cn(JLabel Agility_Cn) {
-        this.Agility_Cn = Agility_Cn;
+    public static void setAgility_Cn(JLabel Agility_Cn) {
+        Interfaz.Agility_Cn = Agility_Cn;
     }
 
-    public JLabel getAgility_Nick() {
+    public static JLabel getAgility_Nick() {
         return Agility_Nick;
     }
 
-    public void setAgility_Nick(JLabel Agility_Nick) {
-        this.Agility_Nick = Agility_Nick;
+    public static void setAgility_Nick(JLabel Agility_Nick) {
+        Interfaz.Agility_Nick = Agility_Nick;
     }
 
-    public JLabel getHP_Cn() {
+    public static JLabel getHP_Cn() {
         return HP_Cn;
     }
 
-    public void setHP_Cn(JLabel HP_Cn) {
-        this.HP_Cn = HP_Cn;
+    public static void setHP_Cn(JLabel HP_Cn) {
+        Interfaz.HP_Cn = HP_Cn;
     }
 
-    public JLabel getHP_Nick() {
+    public static JLabel getHP_Nick() {
         return HP_Nick;
     }
 
-    public void setHP_Nick(JLabel HP_Nick) {
-        this.HP_Nick = HP_Nick;
+    public static void setHP_Nick(JLabel HP_Nick) {
+        Interfaz.HP_Nick = HP_Nick;
     }
 
     public static JTextArea getListaGanadores() {
@@ -109,100 +129,124 @@ public class Interfaz extends javax.swing.JFrame {
         Interfaz.ListaGanadores = ListaGanadores;
     }
 
-    public JLabel getObject_Cn() {
+    public static JLabel getObject_Cn() {
         return Object_Cn;
     }
 
-    public void setObject_Cn(JLabel Object_Cn) {
-        this.Object_Cn = Object_Cn;
+    public static void setObject_Cn(JLabel Object_Cn) {
+        Interfaz.Object_Cn = Object_Cn;
     }
 
-    public JLabel getObject_Nick() {
+    public static JLabel getObject_Nick() {
         return Object_Nick;
     }
 
-    public void setObject_Nick(JLabel Object_Nick) {
-        this.Object_Nick = Object_Nick;
+    public static void setObject_Nick(JLabel Object_Nick) {
+        Interfaz.Object_Nick = Object_Nick;
     }
 
-    public JTextArea getPrioridad1CN() {
+    public static JTextArea getPrioridad1CN() {
         return Prioridad1CN;
     }
 
-    public void setPrioridad1CN(JTextArea Prioridad1CN) {
-        this.Prioridad1CN = Prioridad1CN;
+    public static void setPrioridad1CN(JTextArea Prioridad1CN) {
+        Interfaz.Prioridad1CN = Prioridad1CN;
     }
 
-    public JTextArea getPrioridad1Nick() {
+    public static JTextArea getPrioridad1Nick() {
         return Prioridad1Nick;
     }
 
-    public void setPrioridad1Nick(JTextArea Prioridad1Nick) {
-        this.Prioridad1Nick = Prioridad1Nick;
+    public static void setPrioridad1Nick(JTextArea Prioridad1Nick) {
+        Interfaz.Prioridad1Nick = Prioridad1Nick;
     }
 
-    public JTextArea getPrioridad2CN() {
+    public static JTextArea getPrioridad2CN() {
         return Prioridad2CN;
     }
 
-    public void setPrioridad2CN(JTextArea Prioridad2CN) {
-        this.Prioridad2CN = Prioridad2CN;
+    public static void setPrioridad2CN(JTextArea Prioridad2CN) {
+        Interfaz.Prioridad2CN = Prioridad2CN;
     }
 
-    public JTextArea getPrioridad2Nick() {
+    public static JTextArea getPrioridad2Nick() {
         return Prioridad2Nick;
     }
 
-    public void setPrioridad2Nick(JTextArea Prioridad2Nick) {
-        this.Prioridad2Nick = Prioridad2Nick;
+    public static void setPrioridad2Nick(JTextArea Prioridad2Nick) {
+        Interfaz.Prioridad2Nick = Prioridad2Nick;
     }
 
-    public JTextArea getPrioridad3CN() {
+    public static JTextArea getPrioridad3CN() {
         return Prioridad3CN;
     }
 
-    public void setPrioridad3CN(JTextArea Prioridad3CN) {
-        this.Prioridad3CN = Prioridad3CN;
+    public static void setPrioridad3CN(JTextArea Prioridad3CN) {
+        Interfaz.Prioridad3CN = Prioridad3CN;
     }
 
-    public JTextArea getPrioridad3Nick() {
+    public static JTextArea getPrioridad3Nick() {
         return Prioridad3Nick;
     }
 
-    public void setPrioridad3Nick(JTextArea Prioridad3Nick) {
-        this.Prioridad3Nick = Prioridad3Nick;
+    public static void setPrioridad3Nick(JTextArea Prioridad3Nick) {
+        Interfaz.Prioridad3Nick = Prioridad3Nick;
     }
 
-    public JTextArea getRefuerzoCN() {
+    public static JTextArea getRefuerzoCN() {
         return RefuerzoCN;
     }
 
-    public void setRefuerzoCN(JTextArea RefuerzoCN) {
-        this.RefuerzoCN = RefuerzoCN;
+    public static void setRefuerzoCN(JTextArea RefuerzoCN) {
+        Interfaz.RefuerzoCN = RefuerzoCN;
     }
 
-    public JTextArea getRefuerzoNick() {
+    public static JTextArea getRefuerzoNick() {
         return RefuerzoNick;
     }
 
-    public void setRefuerzoNick(JTextArea RefuerzoNick) {
-        this.RefuerzoNick = RefuerzoNick;
+    public static void setRefuerzoNick(JTextArea RefuerzoNick) {
+        Interfaz.RefuerzoNick = RefuerzoNick;
     }
 
-    public JLabel getStrength_Cn() {
+    public static JLabel getStrength_Cn() {
         return Strength_Cn;
     }
 
-    public void setStrength_Cn(JLabel Strength_Cn) {
-        this.Strength_Cn = Strength_Cn;
+    public static void setStrength_Cn(JLabel Strength_Cn) {
+        Interfaz.Strength_Cn = Strength_Cn;
     }
 
-    public JLabel getStrength_Nick() {
+    public static JLabel getStrength_Nick() {
         return Strength_Nick;
     }
 
-    public void setStrength_Nick(JLabel Strength_Nick) {
-        this.Strength_Nick = Strength_Nick;
+    public static void setStrength_Nick(JLabel Strength_Nick) {
+        Interfaz.Strength_Nick = Strength_Nick;
+    }
+
+    public static JLabel getIA_State() {
+        return IA_State;
+    }
+
+    public static void setIA_State(JLabel IA_State) {
+        Interfaz.IA_State = IA_State;
+    }
+
+    public static JLabel getResultado_Combate() {
+        return Resultado_Combate;
+    }
+
+    public static void setResultado_Combate(JLabel Resultado_Combate) {
+        Interfaz.Resultado_Combate = Resultado_Combate;
+    }
+
+    public JSpinner getVelocidad() {
+        return Velocidad;
+    }
+
+    public void setVelocidad(JSpinner Velocidad) {
+        this.Velocidad = Velocidad;
     }
     
     
@@ -223,6 +267,8 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         marcadorNick = new javax.swing.JLabel();
         marcadorCartoon = new javax.swing.JLabel();
+        Character_Icon_Nick = new javax.swing.JLabel();
+        Character_Icon_Cn = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListaGanadores = new javax.swing.JTextArea();
@@ -268,6 +314,9 @@ public class Interfaz extends javax.swing.JFrame {
         Strength_Nick = new javax.swing.JLabel();
         HP_Nick = new javax.swing.JLabel();
         Agility_Nick = new javax.swing.JLabel();
+        IA_State = new javax.swing.JLabel();
+        Resultado_Combate2 = new javax.swing.JLabel();
+        Resultado_Combate = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -282,6 +331,9 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        Resultado_Combate1 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -302,12 +354,12 @@ public class Interfaz extends javax.swing.JFrame {
         NombreNick.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         NombreNick.setForeground(new java.awt.Color(0, 0, 0));
         NombreNick.setText("Nickelodeon");
-        jPanel1.add(NombreNick, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, -1, -1));
+        jPanel1.add(NombreNick, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, -1, -1));
 
         NombreCartoon.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         NombreCartoon.setForeground(new java.awt.Color(0, 0, 0));
         NombreCartoon.setText("Cartoon Network");
-        jPanel1.add(NombreCartoon, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        jPanel1.add(NombreCartoon, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -317,12 +369,18 @@ public class Interfaz extends javax.swing.JFrame {
         marcadorNick.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         marcadorNick.setForeground(new java.awt.Color(0, 0, 0));
         marcadorNick.setText("0");
-        jPanel1.add(marcadorNick, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, -1));
+        jPanel1.add(marcadorNick, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, -1));
 
         marcadorCartoon.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         marcadorCartoon.setForeground(new java.awt.Color(0, 0, 0));
         marcadorCartoon.setText("0");
-        jPanel1.add(marcadorCartoon, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+        jPanel1.add(marcadorCartoon, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
+        Character_Icon_Nick.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png"))); // NOI18N
+        jPanel1.add(Character_Icon_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, -1, -1));
+
+        Character_Icon_Cn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png"))); // NOI18N
+        jPanel1.add(Character_Icon_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -342,14 +400,14 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 250, 330));
+        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 250, 330));
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 0, 90));
 
@@ -357,14 +415,14 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 250, 330));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 250, 330));
 
         jPanel11.setBackground(new java.awt.Color(0, 0, 0, 90));
 
@@ -372,14 +430,14 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 250, 330));
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, 250, 330));
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0, 90));
 
@@ -387,14 +445,14 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 250, 330));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, 250, 330));
 
         Prioridad1CN.setEditable(false);
         Prioridad1CN.setColumns(20);
@@ -463,7 +521,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Agilidad:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -473,97 +531,112 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Habilidad:");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Fuerza:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("HP:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Objeto:");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 390, -1, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 390, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Habilidad:");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, -1, -1));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Fuerza:");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, -1, -1));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("HP:");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 450, -1, -1));
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 450, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Agilidad:");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, -1, -1));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 470, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Objeto:");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
 
         Agility_Cn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Agility_Cn.setForeground(new java.awt.Color(255, 255, 255));
-        Agility_Cn.setText("Agilidad Cn");
-        jPanel1.add(Agility_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, -1, -1));
+        Agility_Cn.setText("-");
+        jPanel1.add(Agility_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, -1, -1));
 
         Ability_Cn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Ability_Cn.setForeground(new java.awt.Color(255, 255, 255));
-        Ability_Cn.setText("Habilidad Cn");
-        jPanel1.add(Ability_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, -1, -1));
+        Ability_Cn.setText("-");
+        jPanel1.add(Ability_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, -1));
 
         Object_Cn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Object_Cn.setForeground(new java.awt.Color(255, 255, 255));
-        Object_Cn.setText("Objecto Cn");
-        jPanel1.add(Object_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, -1));
+        Object_Cn.setText("-");
+        jPanel1.add(Object_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, -1));
 
         Strength_Cn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Strength_Cn.setForeground(new java.awt.Color(255, 255, 255));
-        Strength_Cn.setText("Fuerza Cn");
-        jPanel1.add(Strength_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, -1, -1));
+        Strength_Cn.setText("-");
+        jPanel1.add(Strength_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
 
         HP_Cn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         HP_Cn.setForeground(new java.awt.Color(255, 255, 255));
-        HP_Cn.setText("HP Cn");
-        jPanel1.add(HP_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, -1, -1));
+        HP_Cn.setText("-");
+        jPanel1.add(HP_Cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, -1, -1));
 
         Object_Nick.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Object_Nick.setForeground(new java.awt.Color(255, 255, 255));
-        Object_Nick.setText("Objecto Nick");
-        jPanel1.add(Object_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 390, -1, -1));
+        Object_Nick.setText("-");
+        jPanel1.add(Object_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 390, -1, -1));
 
         Ability_Nick.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Ability_Nick.setForeground(new java.awt.Color(255, 255, 255));
-        Ability_Nick.setText("Habilidad Nick");
-        jPanel1.add(Ability_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 410, -1, -1));
+        Ability_Nick.setText("-");
+        jPanel1.add(Ability_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 410, -1, -1));
 
         Strength_Nick.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Strength_Nick.setForeground(new java.awt.Color(255, 255, 255));
-        Strength_Nick.setText("Fuerza Nick");
-        jPanel1.add(Strength_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 430, -1, -1));
+        Strength_Nick.setText("-");
+        jPanel1.add(Strength_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 430, -1, -1));
 
         HP_Nick.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         HP_Nick.setForeground(new java.awt.Color(255, 255, 255));
-        HP_Nick.setText("HP Nick");
-        jPanel1.add(HP_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, -1, -1));
+        HP_Nick.setText("-");
+        jPanel1.add(HP_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, -1, -1));
 
         Agility_Nick.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Agility_Nick.setForeground(new java.awt.Color(255, 255, 255));
-        Agility_Nick.setText("Agilidad Nick");
-        jPanel1.add(Agility_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 470, -1, -1));
+        Agility_Nick.setText("-");
+        jPanel1.add(Agility_Nick, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, -1, -1));
+
+        IA_State.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        IA_State.setForeground(new java.awt.Color(255, 255, 255));
+        IA_State.setText("Esperando...");
+        jPanel1.add(IA_State, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 520, -1, -1));
+
+        Resultado_Combate2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Resultado_Combate2.setForeground(new java.awt.Color(255, 255, 255));
+        Resultado_Combate2.setText("Estado de la IA:");
+        jPanel1.add(Resultado_Combate2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, -1, -1));
+
+        Resultado_Combate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Resultado_Combate.setForeground(new java.awt.Color(255, 255, 255));
+        Resultado_Combate.setText("Decidiendo...");
+        jPanel1.add(Resultado_Combate, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, -1, -1));
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 0, 95));
 
@@ -571,14 +644,14 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 270, 110));
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 270, 110));
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 0, 95));
 
@@ -586,14 +659,14 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 270, 110));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 270, 110));
 
         jPanel9.setBackground(new java.awt.Color(0, 0, 0, 95));
 
@@ -601,14 +674,14 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 270, 110));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 270, 110));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0, 95));
 
@@ -616,14 +689,14 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 270, 110));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 270, 110));
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0, 90));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -677,6 +750,46 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 210, 590));
 
+        jPanel12.setBackground(new java.awt.Color(0, 0, 0, 95));
+
+        Resultado_Combate1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Resultado_Combate1.setForeground(new java.awt.Color(255, 255, 255));
+        Resultado_Combate1.setText("Resultado:");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(Resultado_Combate1)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(Resultado_Combate1)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 140, 90));
+
+        jPanel13.setBackground(new java.awt.Color(0, 0, 0, 95));
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 310, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, 310, 40));
+
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InterfaceImages/ClashBg.png"))); // NOI18N
         jPanel1.add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -718,6 +831,8 @@ public class Interfaz extends javax.swing.JFrame {
 //            System.out.println("Prioridad 3 Nick");
 //            Global.getNick().getPrioridad3().imprimir();
             
+            this.Velocidad.setValue(10);
+            admin.ia.setWaitingTime(((int)this.Velocidad.getValue())*1000);
             admin.start();
             //ia.start();
         }else{
@@ -735,6 +850,7 @@ public class Interfaz extends javax.swing.JFrame {
                 this.repaint();
             }else{
                 //Aqui va a estar el codigo para que el tiempo cambie justo cuando el user lo cambie
+                admin.ia.setWaitingTime(((int)this.Velocidad.getValue())*1000);
             }
         }else{
             this.Velocidad.setValue(1);
@@ -778,29 +894,35 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Ability_Cn;
-    private javax.swing.JLabel Ability_Nick;
-    private javax.swing.JLabel Agility_Cn;
-    private javax.swing.JLabel Agility_Nick;
+    private static javax.swing.JLabel Ability_Cn;
+    private static javax.swing.JLabel Ability_Nick;
+    private static javax.swing.JLabel Agility_Cn;
+    private static javax.swing.JLabel Agility_Nick;
     private javax.swing.JLabel Background;
-    private javax.swing.JLabel HP_Cn;
-    private javax.swing.JLabel HP_Nick;
+    private static javax.swing.JLabel Character_Icon_Cn;
+    private static javax.swing.JLabel Character_Icon_Nick;
+    private static javax.swing.JLabel HP_Cn;
+    private static javax.swing.JLabel HP_Nick;
+    private static javax.swing.JLabel IA_State;
     private javax.swing.JButton Inicio;
     private static javax.swing.JTextArea ListaGanadores;
     private javax.swing.JLabel NombreCartoon;
     private javax.swing.JLabel NombreNick;
-    private javax.swing.JLabel Object_Cn;
-    private javax.swing.JLabel Object_Nick;
-    private javax.swing.JTextArea Prioridad1CN;
-    private javax.swing.JTextArea Prioridad1Nick;
-    private javax.swing.JTextArea Prioridad2CN;
-    private javax.swing.JTextArea Prioridad2Nick;
-    private javax.swing.JTextArea Prioridad3CN;
-    private javax.swing.JTextArea Prioridad3Nick;
-    private javax.swing.JTextArea RefuerzoCN;
-    private javax.swing.JTextArea RefuerzoNick;
-    private javax.swing.JLabel Strength_Cn;
-    private javax.swing.JLabel Strength_Nick;
+    private static javax.swing.JLabel Object_Cn;
+    private static javax.swing.JLabel Object_Nick;
+    private static javax.swing.JTextArea Prioridad1CN;
+    private static javax.swing.JTextArea Prioridad1Nick;
+    private static javax.swing.JTextArea Prioridad2CN;
+    private static javax.swing.JTextArea Prioridad2Nick;
+    private static javax.swing.JTextArea Prioridad3CN;
+    private static javax.swing.JTextArea Prioridad3Nick;
+    private static javax.swing.JTextArea RefuerzoCN;
+    private static javax.swing.JTextArea RefuerzoNick;
+    private static javax.swing.JLabel Resultado_Combate;
+    private javax.swing.JLabel Resultado_Combate1;
+    private javax.swing.JLabel Resultado_Combate2;
+    private static javax.swing.JLabel Strength_Cn;
+    private static javax.swing.JLabel Strength_Nick;
     private javax.swing.JSpinner Velocidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -826,6 +948,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -843,7 +967,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JLabel marcadorCartoon;
-    private javax.swing.JLabel marcadorNick;
+    private static javax.swing.JLabel marcadorCartoon;
+    private static javax.swing.JLabel marcadorNick;
     // End of variables declaration//GEN-END:variables
 }
