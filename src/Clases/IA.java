@@ -85,6 +85,9 @@ public class IA extends Thread {
             System.out.println("decision: "+resultadonum);
             if(resultadonum<40) { //hay un ganador
                 System.out.println("Hay un ganador, combatientes: "+p1.getName()+" "+p2.getName());
+            System.out.println("personaje 1, id: "+p1.getId()+" nombre "+p1.getName()+" stats:\nAgilidad: "+p1.getAgilidad()+"\nFuerza: "+p1.getFuerza()+"\nHabilidad: "+p1.getHabilidad()+"\nHP: "+p1.getHp());
+            System.out.println("personaje 2, id: "+p2.getId()+" nombre "+p2.getName()+" stats:\nAgilidad: "+p2.getAgilidad()+"\nFuerza: "+p2.getFuerza()+"\nHabilidad: "+p2.getHabilidad()+"\nHP: "+p2.getHp());
+
                 Character ganador=Ganador();
                 Global.getGanadores().insertBegin(ganador);
 
@@ -120,7 +123,7 @@ public class IA extends Thread {
             ventaja_p2++;
         }
                 
-        if(p1.getFuerza()>p2.getFuerza()){
+        if(p1.getFuerza()>=p2.getFuerza()){
             ventaja_p1++;
         }else {
             ventaja_p2++;
@@ -131,7 +134,7 @@ public class IA extends Thread {
         }else {
             ventaja_p2++;
         }
-        if(p1.getHp()>p2.getHp()) {
+        if(p1.getHp()>=p2.getHp()) {
             ventaja_p1++;
         }else {
             ventaja_p2++;

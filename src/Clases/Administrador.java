@@ -61,14 +61,14 @@ public class Administrador extends Thread{
             this.ciclo++;
             //hora de ver como se actualizan las colas
             //primero hora de subir los contadores de la cola 2 y 3 
-                System.out.println("contador 2 de cn");
+               // System.out.println("contador 2 de cn");
             Global.getCN().getPrioridad2().subir_contador();
-            System.out.println("contador 3 de cn");
+           // System.out.println("contador 3 de cn");
             Global.getCN().getPrioridad3().subir_contador();
             
-            System.out.println("contador 2 de nick");
+           // System.out.println("contador 2 de nick");
             Global.getNick().getPrioridad2().subir_contador();
-            System.out.println("contador 3 de nick");
+           // System.out.println("contador 3 de nick");
             Global.getNick().getPrioridad3().subir_contador();
             
             //ahora veo como encolo y desencolo las que tienen 8 como contador
@@ -93,10 +93,10 @@ public class Administrador extends Thread{
                     //System.out.println("nodo borrado "+borrado.getElement().getId());
                     }
                     Global.getNick().getPrioridad1().encolar(aux.getElement());//lo meto a la de prioridad 1
-                    System.out.println("nueva prioridad 1");
-            Global.getNick().getPrioridad1().imprimir();
-            System.out.println("nueva prioridad 2");
-            Global.getNick().getPrioridad2().imprimir();
+//                    System.out.println("nueva prioridad 1");
+//            Global.getNick().getPrioridad1().imprimir();
+//            System.out.println("nueva prioridad 2");
+//            Global.getNick().getPrioridad2().imprimir();
                     //System.out.println("AAAAAAA "+aux.getNext());
                 }
         
@@ -122,10 +122,10 @@ public class Administrador extends Thread{
                     //System.out.println("nodo borrado "+borrado.getElement().getId());
                     }
                     Global.getNick().getPrioridad2().encolar(aux.getElement());//lo meto a la de prioridad 1
-                    System.out.println("nueva prioridad 2");
-            Global.getNick().getPrioridad2().imprimir();
-            System.out.println("nueva prioridad 3");
-            Global.getNick().getPrioridad3().imprimir();
+//                    System.out.println("nueva prioridad 2");
+//            Global.getNick().getPrioridad2().imprimir();
+//            System.out.println("nueva prioridad 3");
+//            Global.getNick().getPrioridad3().imprimir();
                     //System.out.println("AAAAAAA "+aux.getNext());
                 }
         
@@ -151,10 +151,10 @@ public class Administrador extends Thread{
                     //System.out.println("nodo borrado "+borrado.getElement().getId());
                     }
                     Global.getCN().getPrioridad1().encolar(aux.getElement());//lo meto a la de prioridad 1
-                    System.out.println("nueva prioridad 1");
-            Global.getCN().getPrioridad1().imprimir();
-            System.out.println("nueva prioridad 2");
-            Global.getCN().getPrioridad2().imprimir();
+//                    System.out.println("nueva prioridad 1");
+//            Global.getCN().getPrioridad1().imprimir();
+//            System.out.println("nueva prioridad 2");
+//            Global.getCN().getPrioridad2().imprimir();
                     //System.out.println("AAAAAAA "+aux.getNext());
                 }
         
@@ -179,10 +179,10 @@ public class Administrador extends Thread{
                     //System.out.println("nodo borrado "+borrado.getElement().getId());
                     }
                     Global.getCN().getPrioridad2().encolar(aux.getElement());//lo meto a la de prioridad 1
-                    System.out.println("nueva prioridad 2");
-            Global.getCN().getPrioridad2().imprimir();
-            System.out.println("nueva prioridad 3");
-            Global.getCN().getPrioridad3().imprimir();
+//                    System.out.println("nueva prioridad 2");
+//            Global.getCN().getPrioridad2().imprimir();
+//            System.out.println("nueva prioridad 3");
+//            Global.getCN().getPrioridad3().imprimir();
                     //System.out.println("AAAAAAA "+aux.getNext());
                 }
         

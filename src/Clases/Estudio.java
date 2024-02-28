@@ -39,7 +39,7 @@ public class Estudio {
         else if (personaje.getNivel()==3) {
             prioridad3.encolar(personaje);
         }
-       // System.out.println("personaje creado, id: "+personaje.getId()+" nombre "+personaje.getName());
+        //System.out.println("personaje creado, id: "+personaje.getId()+" nombre "+personaje.getName()+" stats:\nAgilidad: "+personaje.getAgilidad()+"\nFuerza: "+personaje.getFuerza()+"\nHabilidad: "+personaje.getHabilidad()+"\nHP: "+personaje.getHp());
         //setIdCh(getIdCh()+1);
     }
 

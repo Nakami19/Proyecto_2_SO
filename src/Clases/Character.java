@@ -31,25 +31,25 @@ public class Character {
         int stat= (int) (Math.random()*100);
         
         if(stat>=0 && stat<60){
-            this.habilidad=1;
+            this.habilidad=2;
             this.numCalidad++;
         } else {
             this.habilidad=0;
         }
         if(stat>=0 && stat<70) {
-            this.hp=1;
+            this.hp=2;
             this.numCalidad++;
         } else {
             this.hp=0;
         }
         if(stat>=0 && stat<50){
-            this.fuerza=1;
+            this.fuerza=3;
             this.numCalidad++;
         } else {
             this.fuerza=0;
         }
         if(stat>=0 && stat<40){
-            this.agilidad=1;
+            this.agilidad=4;
             this.numCalidad++;
         } else {
             this.agilidad=0;
@@ -67,50 +67,58 @@ public class Character {
         
        if (this.object.compareTo("El poder")==0) {
            this.habilidad+=2;
-           this.hp++;
+           this.hp+=3;
        }
        else if(this.object.compareTo("Guante Supremo")==0){
            this.fuerza+=3;
            this.habilidad+=2;
+           this.agilidad++;
        }
        
        else if(this.object.compareTo("Boomerang")==0) {
            this.habilidad+=3;
            this.agilidad+=2;
+           this.fuerza++;
        }
        
        else if(this.object.compareTo("Planeador")==0){
            this.agilidad+=4;
-           this.hp++;
-       }
-       
-       else if(this.object.compareTo("Armadura")==0){
-           this.fuerza++;
            this.hp+=2;
-       }
-       
-       else if(this.object.compareTo("Abanicos")==0){
-           this.agilidad++;
            this.habilidad+=2;
        }
        
+       else if(this.object.compareTo("Armadura")==0){
+           this.fuerza+=2;
+           this.hp+=2;
+           //this.habilidad++;
+       }
+       
+       else if(this.object.compareTo("Abanicos")==0){
+           this.agilidad+=3;
+           this.fuerza+=2;
+          // this.habilidad+=2;
+       }
+       
        else if(this.object.compareTo("Gorra de Camionero")==0){
-           this.hp++;
+           this.hp+=2;
            this.fuerza+=4;
+           this.agilidad+=3;
        }
        else if(this.object.compareTo("Cafe")==0){
            this.agilidad+=4;
            this.habilidad+=2;
+           this.hp+=2;
        }
        
        else if(this.object.compareTo("Sandwich de la Muerte")==0){
            this.fuerza+=4;
-           this.habilidad++;
+           this.habilidad+=3;
+           this.hp++;
        }
        
        else if(this.object.compareTo("Collar de Katara")==0){
            this.hp+=4;
-           this.agilidad++;
+           this.agilidad+=2;
        }
        
     
