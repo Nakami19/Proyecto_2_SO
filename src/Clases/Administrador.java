@@ -7,6 +7,8 @@ package Clases;
 import EDD.Nodo;
 import Interfaces.Global;
 import Interfaces.Interfaz;
+import static Interfaces.Interfaz.getPrioridad1CN;
+import static Interfaces.Interfaz.getPrioridad1Nick;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,10 +42,13 @@ public class Administrador extends Thread{
                 mutex1.acquire(); //Wait del semáforo de Cartoon Network para conseguir el personaje
                 if(Global.getCN().getPrioridad1().getSize() > 0){
                     this.ia.setP1(Global.getCN().getPrioridad1().desencolar().getElement());
+                    Interfaz.getPrioridad1CN().setText(Global.getCN().getPrioridad1().imprimir());
                 }else if(Global.getCN().getPrioridad2().getSize() > 0){
                     this.ia.setP1(Global.getCN().getPrioridad2().desencolar().getElement());
+                    Interfaz.getPrioridad2CN().setText(Global.getCN().getPrioridad2().imprimir());
                 }else if(Global.getCN().getPrioridad3().getSize() > 0){
                     this.ia.setP1(Global.getCN().getPrioridad3().desencolar().getElement());
+                    Interfaz.getPrioridad3CN().setText(Global.getCN().getPrioridad3().imprimir());
                 }
                 System.out.println("Se escogio uno de CN");
                 mutex1.release(); //Se cierra la zona crítica de Cartoon Network
@@ -54,10 +59,13 @@ public class Administrador extends Thread{
 
                 if(Global.getNick().getPrioridad1().getSize() > 0){
                     this.ia.setP2(Global.getNick().getPrioridad1().desencolar().getElement());
+                    Interfaz.getPrioridad1Nick().setText(Global.getNick().getPrioridad1().imprimir());
                 }else if(Global.getNick().getPrioridad2().getSize() > 0){
                     this.ia.setP2(Global.getNick().getPrioridad2().desencolar().getElement());
+                    Interfaz.getPrioridad2Nick().setText(Global.getNick().getPrioridad2().imprimir());
                 }else if(Global.getNick().getPrioridad3().getSize() > 0){
                     this.ia.setP2(Global.getNick().getPrioridad3().desencolar().getElement());
+                    Interfaz.getPrioridad3Nick().setText(Global.getNick().getPrioridad3().imprimir());
                 }
                 System.out.println("Se escogio uno de Nick");
                 mutex2.release(); //Se cierra la zona crítica de Nickelodeon
@@ -112,7 +120,10 @@ public class Administrador extends Thread{
                 }
         
             }
-        
+            
+            Interfaz.getPrioridad1Nick().setText(Global.getNick().getPrioridad1().imprimir());
+            Interfaz.getPrioridad2Nick().setText(Global.getNick().getPrioridad2().imprimir());
+                    
             
             //para prioridad 3 de nick
             for (Nodo aux=Global.getNick().getPrioridad3().getFirst(); aux!=null; aux=aux.getNext()) {
@@ -142,6 +153,9 @@ public class Administrador extends Thread{
         
             }
             
+            Interfaz.getPrioridad2Nick().setText(Global.getNick().getPrioridad2().imprimir());
+            Interfaz.getPrioridad3Nick().setText(Global.getNick().getPrioridad3().imprimir());
+                        
             //para prioridad 2 de cartoon
                 System.out.println("personajes en cola de prioridad 2 de cartoon en admin");
             for (Nodo aux=Global.getCN().getPrioridad2().getFirst(); aux!=null; aux=aux.getNext()) {
@@ -171,6 +185,9 @@ public class Administrador extends Thread{
         
             }
             
+            Interfaz.getPrioridad1CN().setText(Global.getCN().getPrioridad1().imprimir());
+            Interfaz.getPrioridad2CN().setText(Global.getCN().getPrioridad2().imprimir());
+            
             //para prioridad 3 de cartoon
             for (Nodo aux=Global.getCN().getPrioridad3().getFirst(); aux!=null; aux=aux.getNext()) {
                 if(aux.getElement().getCounter()==8) {//si es de 8 debe subir la prioridad
@@ -199,6 +216,9 @@ public class Administrador extends Thread{
         
             }
             
+            Interfaz.getPrioridad2CN().setText(Global.getCN().getPrioridad2().imprimir());
+            Interfaz.getPrioridad3CN().setText(Global.getCN().getPrioridad3().imprimir());
+            
             
             
             //Se terminó el combate y se actualizaron las colas, entonces, revisamos las listas de refuerzos
@@ -209,10 +229,13 @@ public class Administrador extends Thread{
                     System.out.println("Un personaje de CN salió de la cola de refuerzos");
                     Nodo character = Global.getCN().getRefuerzo().desencolar();
                     Global.getCN().getPrioridad1().encolar(character.getElement());
+                    Interfaz.getRefuerzoCN().setText(Global.getCN().getRefuerzo().imprimir());
+                    Interfaz.getPrioridad1CN().setText(Global.getCN().getPrioridad1().imprimir());
                 }else{
                     System.out.println("Un personaje de CN se mandó al final de la cola de refuerzos");
                     Nodo character = Global.getCN().getRefuerzo().desencolar();
                     Global.getCN().getRefuerzo().encolar(character.getElement());
+                    Interfaz.getRefuerzoCN().setText(Global.getCN().getRefuerzo().imprimir());
                 }
                 mutex1.release();
             }
@@ -224,10 +247,13 @@ public class Administrador extends Thread{
                     System.out.println("Un personaje de Nick salió de la cola de refuerzos");
                     Nodo character = Global.getNick().getRefuerzo().desencolar();
                     Global.getNick().getPrioridad1().encolar(character.getElement());
+                    Interfaz.getRefuerzoNick().setText(Global.getNick().getRefuerzo().imprimir());
+                    Interfaz.getPrioridad1Nick().setText(Global.getNick().getPrioridad1().imprimir());
                 }else{
                     System.out.println("Un personaje de Nick se mandó al final de la cola de refuerzos");
                     Nodo character = Global.getNick().getRefuerzo().desencolar();
                     Global.getNick().getRefuerzo().encolar(character.getElement());
+                    Interfaz.getRefuerzoNick().setText(Global.getNick().getRefuerzo().imprimir());
                 }
                 mutex2.release();
             }

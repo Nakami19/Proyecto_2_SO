@@ -7,6 +7,7 @@ package Clases;
 import EDD.Nodo;
 import Interfaces.Global;
 import Interfaces.Interfaz;
+import static Interfaces.Interfaz.getRefuerzoCN;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -92,6 +93,11 @@ public class IA extends Thread {
                 
             if(p2.getName().compareTo("Aang estado avatar")==0) {
                 ganador=p2;
+                Interfaz.getListaGanadores().append("N-"+p2.getId()+'\n');
+                Interfaz.getCharacter_Icon_Cn().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png"))); // Se quita la foto del Perdedor
+                this.NickWins ++;
+                Interfaz.getMarcadorNick().setText(Integer.toString(this.NickWins));
+                
             } else {
                 ganador=Ganador();
             }
@@ -111,6 +117,8 @@ public class IA extends Thread {
                 Interfaz.getResultado_Combate().setText("Suspendido!");
                 Global.getCN().getRefuerzo().encolar(p1);
                 Global.getNick().getRefuerzo().encolar(p2); 
+                Interfaz.getRefuerzoCN().setText(Global.getCN().getRefuerzo().imprimir());
+                Interfaz.getRefuerzoNick().setText(Global.getNick().getRefuerzo().imprimir());
             }            
 
             sleep(3000); //Duerme 3 segundos para que el resultado se pueda ver reflejado en la interfaz, propenso a cambio

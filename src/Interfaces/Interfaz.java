@@ -812,6 +812,16 @@ public class Interfaz extends javax.swing.JFrame {
             Global.getNick().CreateCharacter(Global.getNickelodeon()[i], Global.getObjetos()[random],admin.getIdCh());
             admin.setIdCh(admin.getIdCh()+1);
             }
+            getPrioridad1CN().setText(Global.getCN().getPrioridad1().imprimir());
+            getPrioridad2CN().setText(Global.getCN().getPrioridad2().imprimir());
+            getPrioridad3CN().setText(Global.getCN().getPrioridad3().imprimir());
+            getRefuerzoCN().setText(Global.getCN().getRefuerzo().imprimir());
+            
+            getPrioridad1Nick().setText(Global.getNick().getPrioridad1().imprimir());
+            getPrioridad2Nick().setText(Global.getNick().getPrioridad2().imprimir());
+            getPrioridad3Nick().setText(Global.getNick().getPrioridad3().imprimir());
+            getRefuerzoNick().setText(Global.getNick().getRefuerzo().imprimir());
+
         
 //            System.out.println("Prioridad 1 Cartoon");
 //            Global.getCN().getPrioridad1().imprimir();

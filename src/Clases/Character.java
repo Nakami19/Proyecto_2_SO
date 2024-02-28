@@ -37,19 +37,19 @@ public class Character {
             this.habilidad=0;
         }
         if(stat>=0 && stat<70) {
-            this.hp=2;
+            this.hp=3;
             this.numCalidad++;
         } else {
-            this.hp=0;
+            this.hp=1;
         }
         if(stat>=0 && stat<50){
-            this.fuerza=3;
+            this.fuerza=4;
             this.numCalidad++;
         } else {
             this.fuerza=0;
         }
         if(stat>=0 && stat<40){
-            this.agilidad=4;
+            this.agilidad=5;
             this.numCalidad++;
         } else {
             this.agilidad=0;
