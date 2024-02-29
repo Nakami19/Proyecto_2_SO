@@ -19,8 +19,6 @@ import javax.swing.ImageIcon;
  */
 public class IA extends Thread {
     
-    private Semaphore mutex1; //Semaforo de Cn
-    private Semaphore mutex2; //Semaforo de Nickelodeon
     private Character p1; //Personaje de Cn
     private Character p2; //Personaje de NK
     private int CnWins;
@@ -34,8 +32,6 @@ public class IA extends Thread {
 //    }
     
      public IA () {
-        this.mutex1 = new Semaphore(1);
-        this.mutex2 = new Semaphore(1);
         this.p1 = null;
         this.p2 = null;
         this.CnWins = 0;

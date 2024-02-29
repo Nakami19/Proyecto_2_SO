@@ -79,8 +79,82 @@ public class Administrador extends Thread{
             clearStats();
             this.ciclo++;
             //hora de ver como se actualizan las colas
-            //primero hora de subir los contadores de la cola 2 y 3 
-               // System.out.println("contador 2 de cn");
+            Actualizar_colas();
+            
+            
+            //Se terminó el combate y se actualizaron las colas, entonces, revisamos las listas de refuerzos
+            if(Global.getCN().getRefuerzo().getSize()>0){
+                int chance= (int) (Math.random()*100);
+                mutex1.acquire();
+                if(chance>= 0 && chance <= 40){
+                    System.out.println("Un personaje de CN salió de la cola de refuerzos");
+                    Nodo character = Global.getCN().getRefuerzo().desencolar();
+                    Global.getCN().getPrioridad1().encolar(character.getElement());
+                    Interfaz.getRefuerzoCN().setText(Global.getCN().getRefuerzo().imprimir());
+                    Interfaz.getPrioridad1CN().setText(Global.getCN().getPrioridad1().imprimir());
+                }else{
+                    System.out.println("Un personaje de CN se mandó al final de la cola de refuerzos");
+                    Nodo character = Global.getCN().getRefuerzo().desencolar();
+                    Global.getCN().getRefuerzo().encolar(character.getElement());
+                    Interfaz.getRefuerzoCN().setText(Global.getCN().getRefuerzo().imprimir());
+                }
+                mutex1.release();
+            }
+
+            if(Global.getNick().getRefuerzo().getSize()>0){
+                int chance= (int) (Math.random()*100);
+                mutex2.acquire();
+                if(chance>= 0 && chance <= 40){
+                    System.out.println("Un personaje de Nick salió de la cola de refuerzos");
+                    Nodo character = Global.getNick().getRefuerzo().desencolar();
+                    Global.getNick().getPrioridad1().encolar(character.getElement());
+                    Interfaz.getRefuerzoNick().setText(Global.getNick().getRefuerzo().imprimir());
+                    Interfaz.getPrioridad1Nick().setText(Global.getNick().getPrioridad1().imprimir());
+                }else{
+                    System.out.println("Un personaje de Nick se mandó al final de la cola de refuerzos");
+                    Nodo character = Global.getNick().getRefuerzo().desencolar();
+                    Global.getNick().getRefuerzo().encolar(character.getElement());
+                    Interfaz.getRefuerzoNick().setText(Global.getNick().getRefuerzo().imprimir());
+                }
+                mutex2.release();
+            }
+            //hora de ver si se crea un personaje o no 
+            if(this.ciclo==2) {//se revisa si ya pasaron 2 ciclos
+                int crear=(int) (Math.random()*100);
+                
+                if(crear>=0 && crear<80) {//entro en la probabilidad de crear
+                    //System.out.println("se crea personaje");
+                    AgregarPersonaje();
+                }
+                //si entra o no al final el contador de ciclo se reinicia a 0
+                this.ciclo=0;
+            }
+            
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    //antes de llamar a esta funcion se debe verificar que entro en el 80%
+    public void AgregarPersonaje(){        
+        //crear un personaje de cartoon network
+        int numP=(int) (Math.random()*19);
+        int numO=(int) (Math.random()*9);
+        Global.getCN().CreateCharacter(Global.getCartoon()[numP], Global.getObjetos()[numO],IdCh);
+        IdCh++;
+        
+        //crear un personaje de nick
+        numP=(int) (Math.random()*19);
+        numO=(int) (Math.random()*9);
+        Global.getNick().CreateCharacter(Global.getNickelodeon()[numP], Global.getObjetos()[numO],IdCh);
+        IdCh++;
+        
+    }
+    
+    public void Actualizar_colas() {
+           // System.out.println("contador 2 de cn");
             Global.getCN().getPrioridad2().subir_contador();
            // System.out.println("contador 3 de cn");
             Global.getCN().getPrioridad3().subir_contador();
@@ -218,78 +292,11 @@ public class Administrador extends Thread{
             
             Interfaz.getPrioridad2CN().setText(Global.getCN().getPrioridad2().imprimir());
             Interfaz.getPrioridad3CN().setText(Global.getCN().getPrioridad3().imprimir());
-            
-            
-            
-            //Se terminó el combate y se actualizaron las colas, entonces, revisamos las listas de refuerzos
-            if(Global.getCN().getRefuerzo().getSize()>0){
-                int chance= (int) (Math.random()*100);
-                mutex1.acquire();
-                if(chance>= 0 && chance <= 40){
-                    System.out.println("Un personaje de CN salió de la cola de refuerzos");
-                    Nodo character = Global.getCN().getRefuerzo().desencolar();
-                    Global.getCN().getPrioridad1().encolar(character.getElement());
-                    Interfaz.getRefuerzoCN().setText(Global.getCN().getRefuerzo().imprimir());
-                    Interfaz.getPrioridad1CN().setText(Global.getCN().getPrioridad1().imprimir());
-                }else{
-                    System.out.println("Un personaje de CN se mandó al final de la cola de refuerzos");
-                    Nodo character = Global.getCN().getRefuerzo().desencolar();
-                    Global.getCN().getRefuerzo().encolar(character.getElement());
-                    Interfaz.getRefuerzoCN().setText(Global.getCN().getRefuerzo().imprimir());
-                }
-                mutex1.release();
-            }
-
-            if(Global.getNick().getRefuerzo().getSize()>0){
-                int chance= (int) (Math.random()*100);
-                mutex2.acquire();
-                if(chance>= 0 && chance <= 40){
-                    System.out.println("Un personaje de Nick salió de la cola de refuerzos");
-                    Nodo character = Global.getNick().getRefuerzo().desencolar();
-                    Global.getNick().getPrioridad1().encolar(character.getElement());
-                    Interfaz.getRefuerzoNick().setText(Global.getNick().getRefuerzo().imprimir());
-                    Interfaz.getPrioridad1Nick().setText(Global.getNick().getPrioridad1().imprimir());
-                }else{
-                    System.out.println("Un personaje de Nick se mandó al final de la cola de refuerzos");
-                    Nodo character = Global.getNick().getRefuerzo().desencolar();
-                    Global.getNick().getRefuerzo().encolar(character.getElement());
-                    Interfaz.getRefuerzoNick().setText(Global.getNick().getRefuerzo().imprimir());
-                }
-                mutex2.release();
-            }
-            //hora de ver si se crea un personaje o no 
-            if(this.ciclo==2) {//se revisa si ya pasaron 2 ciclos
-                int crear=(int) (Math.random()*100);
-                
-                if(crear>=0 && crear<80) {//entro en la probabilidad de crear
-                    //System.out.println("se crea personaje");
-                    AgregarPersonaje();
-                }
-                //si entra o no al final el contador de ciclo se reinicia a 0
-                this.ciclo=0;
-            }
-            
-                
-            } catch (InterruptedException ex) {
-                Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
     
-    //antes de llamar a esta funcion se debe verificar que entro en el 80%
-    public void AgregarPersonaje(){        
-        //crear un personaje de cartoon network
-        int numP=(int) (Math.random()*19);
-        int numO=(int) (Math.random()*9);
-        Global.getCN().CreateCharacter(Global.getCartoon()[numP], Global.getObjetos()[numO],IdCh);
-        IdCh++;
-        
-        //crear un personaje de nick
-        numP=(int) (Math.random()*19);
-        numO=(int) (Math.random()*9);
-        Global.getNick().CreateCharacter(Global.getNickelodeon()[numP], Global.getObjetos()[numO],IdCh);
-        IdCh++;
-        
+    
+    
+    
+    
     }
 
     public int getIdCh() {
